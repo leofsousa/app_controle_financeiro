@@ -10,7 +10,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  String user = "Felipe";
+  String user = "Usuário";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,16 +24,29 @@ class _MainPageState extends State<MainPage> {
                 left: 10,
                 right: 10,
               ),
-              child: ListTile(
-                leading: Icon(Icons.person),
-                title: Text("Olá, $user"),
-                subtitle: Text("Sejá Bem Vindo"),
-                trailing: IconButton(
-                  icon: Icon(Icons.expand_more),
-                  onPressed: () {},
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: AppColors.corSecundaria,
+                  borderRadius: BorderRadius.circular(50),
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.corSecundaria,
+                      spreadRadius: 1,
+                      blurRadius: 10,
+                      offset: Offset(0, 4),
+                    ),
+                  ],
                 ),
-                minLeadingWidth: 40,
-                tileColor: const Color.fromARGB(1, 46, 48, 52),
+                child: ListTile(
+                  leading: Icon(Icons.person),
+                  title: Text("Olá, $user", style: TextStyle(fontSize: 22),),
+                  subtitle: Text("Sejá Bem Vindo"),
+                  trailing: IconButton(
+                    icon: Icon(Icons.expand_more ),
+                    onPressed: () {},
+                  ),
+                  minLeadingWidth: 40,
+                ),
               ),
             ),
             SizedBox(
@@ -43,11 +56,13 @@ class _MainPageState extends State<MainPage> {
                 PieChartData(
                   sections: [
                     PieChartSectionData(
+                      showTitle: false,
                       color: AppColors.corPerda,
                       value: 50,
                       radius: 80,
                     ),
                     PieChartSectionData(
+                      showTitle: false,
                       color: AppColors.corGanho,
                       value: 50,
                       radius: 80,
@@ -133,11 +148,12 @@ class _MainPageState extends State<MainPage> {
                 ],
               ),
             ),
-            ListView()
+            Column(children: []),
           ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: AppColors.corSecundaria,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(
