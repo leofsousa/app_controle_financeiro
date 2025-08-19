@@ -14,8 +14,14 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        brightness: Brightness.dark,
         primarySwatch: Colors.lightBlue,
+        scaffoldBackgroundColor: Colors.black,
         appBarTheme: const AppBarTheme(backgroundColor: Colors.lightBlue),
+        colorScheme: ColorScheme.dark(
+          primary: Colors.white,
+          secondary: Colors.white
+        ),
       ),
       home: MainPage(),
     );
